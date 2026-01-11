@@ -14,7 +14,7 @@ import cv2
 
 
 app = Flask(__name__)
-app.config['MONGO_URI']="mongodb+srv://Rashmi_22:rashmi%232@cluster0.fu796ry.mongodb.net/covid"
+app.config['MONGO_URI']="url"
 mongo=PyMongo(app)
 
 app.secret_key = "secret key"
@@ -142,3 +142,4 @@ def suspect_track():
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
+
