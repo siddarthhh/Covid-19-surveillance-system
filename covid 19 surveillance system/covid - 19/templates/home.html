@@ -1,0 +1,41 @@
+<html>
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Home Page</title>
+    <link href="{{ url_for('static', filename='styles.css')}}" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+  </head>
+  <body>
+  
+    <div class="topnav">
+      <a class="active" href="/home"><i class="fa fa-fw fa-home"></i> Home</a>
+      <div class="topnav-right">
+            <a href="/"><i class="fa fa-sign-out"></i> Logout</a>
+
+        </div>
+        
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h3 class="animate-charcter"> Covid-19 Surveillance System</h3>
+          </div>
+        </div>
+      </div>
+      <br>
+      
+      <div style="text-align:center;"><img src="{{ url_for('static', filename='images/sih.png')}}" width="300" height="300" alt="My Image" style="margin-top:50px ;" /></div>
+
+      <br>
+      
+<a href="/registration"><button class ="button button1">User Registration</button></a>
+<a href="/attendance"><button class =" button button2">Attendance Details</button></a>
+<a href="/suspect"><button class ="button button3" style="text-decoration:none;" >Track Suspect</button></a>
+<button class="button button4">Enable Mask Detection</button>
+      
+      </body>
+</html>

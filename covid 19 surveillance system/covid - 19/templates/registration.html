@@ -1,0 +1,135 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Registration form</title>
+  <link href="css/style.css" type="text/css" rel="stylesheet">
+  <link rel="stylesheet" href="../static/registration.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
+  <style>
+    img {
+      margin-top: 60px;
+      margin-left: 50px;
+      opacity: 0.5;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topnav">
+    <a class="active" href="home.html"><i class="fa fa-fw fa-home"></i> Home</a>
+    <div class="topnav-right">
+      <a href="login.html"><i class="fa fa-sign-out"></i> Logout</a>
+
+
+    </div>
+  </div>
+  <img src="sih.png">
+  <div class="container">
+    <form method="POST" action="/user_register" autocomplete="on" enctype="multipart/form-data">
+      <h1>USER REGISTRATION FORM</h1>
+      <div class="box">
+        <label for="firstName" class="fl fontLabel"> First Name: </label>
+
+        <div class="fr">
+          <input type="text" name="firstName" placeholder="First Name" class="textBox" autofocus="on" required>
+        </div>
+        <div class="clr"></div>
+      </div>
+      <div class="box">
+        <label for="lastName" class="fl fontLabel"> Last Name: </label>
+
+        <div class="fr">
+          <input type="text" required name="secondName" placeholder="Last Name" class="textBox">
+        </div>
+        <div class="clr"></div>
+      </div>
+      <div class="box">
+        <label for="phone" class="fl fontLabel"> Phone No.: </label>
+
+        <div class="fr">
+          <input type="text" required name="phoneNo" maxlength="10" placeholder="Phone No." class="textBox">
+        </div>
+        <div class="clr"></div>
+      </div>
+      <div class="box">
+        <label for="address" class="fl fontLabel"> Address : </label>
+
+        <div class="fr">
+          <input type="address" required name="address" placeholder="address" class="textBox">
+        </div>
+        <div class="clr"></div>
+      </div>
+      <div class="box">
+        <label for="email" class="fl fontLabel"> Email ID: </label>
+
+        <div class="fr">
+          <input type="email" required name="email" placeholder="abc@gmail.com" class="textBox">
+        </div>
+        <div class="clr"></div>
+      </div>
+      <div class="box">
+        <label for="DOB" class="fl fontLabel"> Date of birth:</label>
+
+        <div class="fr">
+          <input type="date" name="birthDate">
+
+        </div>
+        <div class="clr"></div>
+      </div>
+      <div class="box radio">
+        <label for="gender" class="fl fontLabel"> Gender: </label>
+        <input type="radio" name="Gender" value="Male" > Male &nbsp; &nbsp;
+        <input type="radio" name="Gender" value="Female" > Female &nbsp; &nbsp;
+        <input type="radio" name="Gender" value="Other" > Other
+      </div>
+      <div class="box">
+        <label for="files">Select files:</label>
+        <input type="file" id="files[]" name="files[]" multiple></br>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div id="my_camera"></div>
+          <br />
+          <input
+            type="button"
+            value="Take Snapshot"
+            onClick="take_snapshot()"
+          />
+          <input type="hidden" name="image" class="image-tag"/>
+        </div>
+        <div class="col-md-6">
+          <div id="results">Your captured image will appear here...</div>
+        </div>
+        <div class="col-md-12 text-center">
+          <br />
+          <button class="btn btn-success">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Configure a few settings and attach camera -->
+  <script language="JavaScript">
+    Webcam.set({
+      width: 490,
+      height: 390,
+      image_format: "jpeg",
+      jpeg_quality: 90,
+    });
+
+    Webcam.attach("#my_camera");
+
+    function take_snapshot() {
+      Webcam.snap(function (data_uri) {
+        $(".image-tag").val(data_uri);
+        document.getElementById("results").innerHTML =
+          '<img src="' + data_uri + '"/>';
+      });
+    }
+  </script>
+</body>
+</html>
