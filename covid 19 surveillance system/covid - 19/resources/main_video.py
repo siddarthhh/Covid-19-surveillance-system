@@ -7,7 +7,7 @@ from pytz import timezone
 import time
 
 def suspect_name():
-    client = MongoClient("mongodb+srv://Rashmi_22:rashmi%232@cluster0.fu796ry.mongodb.net/test")
+    client = MongoClient("")
     db = client.get_database("covid")
     attend_records = db.attendance
     suspect_records = db.suspect_details
@@ -65,3 +65,4 @@ def suspect_name():
         cap.release()
         cv2.destroyAllWindows()
         return 
+
